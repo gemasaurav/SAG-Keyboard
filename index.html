@@ -1,83 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SAG Keyboard</title>
-    <style>
-        body{
-            font-family:Arial;
-            background:#111;
-            color:white;
-            text-align:center;
-            padding:20px;
-        }
-        textarea{
-            width:90%;
-            height:120px;
-            font-size:18px;
-        }
-        button{
-            padding:12px 25px;
-            font-size:18px;
-            margin-top:15px;
-            background:#00b894;
-            color:white;
-            border:none;
-            border-radius:8px;
-        }
-        #output{
-            margin-top:20px;
-            background:#222;
-            padding:15px;
-            border-radius:10px;
-            word-wrap:break-word;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SOSAU Script Converter</title>
+
+<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<h1>SAG Keyboard v1.0</h1>
+<div class="container">
 
-<p>Type English Text</p>
+<h1>SOSAU Script Converter</h1>
 
-<textarea id="input"></textarea>
+<p class="subtitle">
+English ⇄ SOSAU Script
+</p>
 
-<br>
+<select id="mode">
+<option value="auto">Auto Detect</option>
+<option value="encode">English → SOSAU</option>
+<option value="decode">SOSAU → English</option>
+</select>
 
-<button onclick="convert()">Convert</button>
+<textarea
+id="inputText"
+placeholder="Type English or paste SOSAU Script here..."
+></textarea>
 
-<div id="output"></div>
+<button id="convertBtn">
+Convert
+</button>
 
-<script>
-function convert(){
+<textarea
+id="outputText"
+readonly
+placeholder="Converted text will appear here..."
+></textarea>
 
-let t=document.getElementById("input").value.toUpperCase();
+<div class="buttons">
 
-const map={
-"A":"⌞","B":"⌟","C":"⌜","D":"⌝","E":"□","F":"⊏","G":"⊐","H":"∩","I":"┌",
-"J":"◔","K":"◕","L":"◖","M":"◗","N":"▣","O":"▢","P":"▤","Q":"▥","R":"▦",
-"S":"∨","T":"<","U":"∧","V":">","W":"⌵","X":"⋖","Y":"⌃","Z":"⋗",
-"0":".",
-"1":"!",
-"2":"^",
-"3":"%",
-"4":"#",
-"5":"&",
-"6":"@",
-"7":"?",
-"8":"*",
-"9":"$"
-};
+<button id="copyBtn">
+Copy
+</button>
 
-let out="";
+<button id="clearBtn">
+Clear
+</button>
 
-for(let c of t){
-out+=map[c]||c;
-}
+<button id="swapBtn">
+Swap
+</button>
 
-document.getElementById("output").innerHTML=out;
+</div>
 
-}
-</script>
+</div>
+
+<script src="js/mapping.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
