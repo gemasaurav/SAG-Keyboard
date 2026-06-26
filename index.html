@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SAG Keyboard</title>
+    <style>
+        body{
+            font-family:Arial;
+            background:#111;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+        textarea{
+            width:90%;
+            height:120px;
+            font-size:18px;
+        }
+        button{
+            padding:12px 25px;
+            font-size:18px;
+            margin-top:15px;
+            background:#00b894;
+            color:white;
+            border:none;
+            border-radius:8px;
+        }
+        #output{
+            margin-top:20px;
+            background:#222;
+            padding:15px;
+            border-radius:10px;
+            word-wrap:break-word;
+        }
+    </style>
+</head>
+<body>
+
+<h1>SAG Keyboard v1.0</h1>
+
+<p>Type English Text</p>
+
+<textarea id="input"></textarea>
+
+<br>
+
+<button onclick="convert()">Convert</button>
+
+<div id="output"></div>
+
+<script>
+function convert(){
+
+let t=document.getElementById("input").value.toUpperCase();
+
+const map={
+"A":"⌞","B":"⌟","C":"⌜","D":"⌝","E":"□","F":"⊏","G":"⊐","H":"∩","I":"┌",
+"J":"◔","K":"◕","L":"◖","M":"◗","N":"▣","O":"▢","P":"▤","Q":"▥","R":"▦",
+"S":"∨","T":"<","U":"∧","V":">","W":"⌵","X":"⋖","Y":"⌃","Z":"⋗",
+"0":".",
+"1":"!",
+"2":"^",
+"3":"%",
+"4":"#",
+"5":"&",
+"6":"@",
+"7":"?",
+"8":"*",
+"9":"$"
+};
+
+let out="";
+
+for(let c of t){
+out+=map[c]||c;
+}
+
+document.getElementById("output").innerHTML=out;
+
+}
+</script>
+
+</body>
+</html>
